@@ -1,0 +1,132 @@
+<mxfile host="draw.io" modified="2024-09-16T12:00:00.000Z" agent="Mozilla/5.0" etag="solution2" version="24.6.4" type="device">
+  <diagram name="Page-1" id="solution2-diagram">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Application -->
+        <mxCell id="app-2" value="pymongo-api" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E8;strokeColor=#4CAF50;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="80" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- mongos Router -->
+        <mxCell id="mongos-2" value="mongos&#xa;Router" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#2196F3;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="80" width="100" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Config Server -->
+        <mxCell id="config-2" value="configSrv" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#FF9800;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="520" y="80" width="100" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Replica Set 1 Group Background -->
+        <mxCell id="rs1-group" value="Replica Set 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#666666;strokeWidth=2;dashed=1;verticalAlign=top;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="200" width="320" height="180" as="geometry" />
+        </mxCell>
+        
+        <!-- Shard 1-1 Primary -->
+        <mxCell id="shard1-1" value="shard1-1&#xa;(Primary)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#F3E5F5;strokeColor=#9C27B0;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="80" y="240" width="80" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Shard 1-2 Secondary -->
+        <mxCell id="shard1-2" value="shard1-2&#xa;(Secondary)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#F8F0F8;strokeColor=#9C27B0;strokeWidth=2;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="240" width="80" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Shard 1-3 Secondary -->
+        <mxCell id="shard1-3" value="shard1-3&#xa;(Secondary)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#F8F0F8;strokeColor=#9C27B0;strokeWidth=2;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="240" width="80" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Replica Set 2 Group Background -->
+        <mxCell id="rs2-group" value="Replica Set 2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#666666;strokeWidth=2;dashed=1;verticalAlign=top;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="200" width="320" height="180" as="geometry" />
+        </mxCell>
+        
+        <!-- Shard 2-1 Primary -->
+        <mxCell id="shard2-1" value="shard2-1&#xa;(Primary)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#F3E5F5;strokeColor=#9C27B0;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="500" y="240" width="80" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Shard 2-2 Secondary -->
+        <mxCell id="shard2-2" value="shard2-2&#xa;(Secondary)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#F8F0F8;strokeColor=#9C27B0;strokeWidth=2;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="240" width="80" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Shard 2-3 Secondary -->
+        <mxCell id="shard2-3" value="shard2-3&#xa;(Secondary)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#F8F0F8;strokeColor=#9C27B0;strokeWidth=2;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="240" width="80" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Main Connections -->
+        <!-- App to mongos -->
+        <mxCell id="conn2-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="app-2" target="mongos-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- mongos to config -->
+        <mxCell id="conn2-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="mongos-2" target="config-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- mongos to shard1-1 -->
+        <mxCell id="conn2-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="mongos-2" target="shard1-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="345" y="180" />
+              <mxPoint x="120" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- mongos to shard2-1 -->
+        <mxCell id="conn2-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="mongos-2" target="shard2-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="395" y="180" />
+              <mxPoint x="540" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Replica Set 1 Connections -->
+        <mxCell id="repl1-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#9C27B0;strokeWidth=2;" edge="1" parent="1" source="shard1-1" target="shard1-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="repl1-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#9C27B0;strokeWidth=2;" edge="1" parent="1" source="shard1-2" target="shard1-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="repl1-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#9C27B0;strokeWidth=2;" edge="1" parent="1" source="shard1-3" target="shard1-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="340" />
+              <mxPoint x="120" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Replica Set 2 Connections -->
+        <mxCell id="repl2-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#9C27B0;strokeWidth=2;" edge="1" parent="1" source="shard2-1" target="shard2-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="repl2-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#9C27B0;strokeWidth=2;" edge="1" parent="1" source="shard2-2" target="shard2-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="repl2-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#9C27B0;strokeWidth=2;" edge="1" parent="1" source="shard2-3" target="shard2-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="740" y="340" />
+              <mxPoint x="540" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

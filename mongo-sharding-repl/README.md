@@ -1,7 +1,7 @@
 # pymongo-api
 
 ## Как запустить
-cd sharding-repl-cache
+cd mongo-sharding-repl
 
 Запускаем mongodb и приложение
 
