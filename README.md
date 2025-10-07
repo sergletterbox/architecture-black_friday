@@ -1,34 +1,24 @@
 # pymongo-api
 
 ## Как запустить
+cd sharding-repl-cache
 
 Запускаем mongodb и приложение
 
 ```shell
-docker compose up -d
+docker compose up --build -d
 ```
 
-Заполняем mongodb данными
+Настраиваем mongodb
 
-```shell
-./scripts/mongo-init.sh
-```
+bash ./scripts/mongo-init-configSrv.sh
+bash ./scripts/mongo-init-shard1.sh
+bash ./scripts/mongo-init-shard2.sh
+bash ./scripts/mongo-init-router.sh
 
 ## Как проверить
 
-### Если вы запускаете проект на локальной машине
-
 Откройте в браузере http://localhost:8080
-
-### Если вы запускаете проект на предоставленной виртуальной машине
-
-Узнать белый ip виртуальной машины
-
-```shell
-curl --silent http://ifconfig.me
-```
-
-Откройте в браузере http://<ip виртуальной машины>:8080
 
 ## Доступные эндпоинты
 

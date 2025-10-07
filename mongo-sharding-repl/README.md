@@ -1,6 +1,7 @@
 # pymongo-api
 
 ## Как запустить
+cd mongo-sharding-repl
 
 Запускаем mongodb и приложение
 

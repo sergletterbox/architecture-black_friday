@@ -7,14 +7,35 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - mongos_router
+      - redis_cache
     ports:
       - 8080:8080
     environment:
       MONGODB_URL: "mongodb://mongos_router:27020"
       MONGODB_DATABASE_NAME: "somedb"
+      REDIS_URL: "redis://redis_cache:6379"
     networks:
       app-network:
         ipv4_address: 173.17.0.11
+
+  redis_cache:
+    image: redis:latest
+    container_name: redis_cache
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      app-network:
+        ipv4_address: 173.17.0.6
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 10s
 
   configSrv:
     image: mongo:latest # docker образ
@@ -230,3 +251,4 @@ volumes:
   shard2-1-data:
   shard2-2-data:
   shard2-3-data:
+  redis-data:
